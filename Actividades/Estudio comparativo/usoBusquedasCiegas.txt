@@ -1,0 +1,128 @@
+Problema de las jarras
+
+>(load "jarras.lsp")
+T
+
+>(load "bprofundidad.lsp")
+
+Loading bprofundidad.lsp
+Finished loading bprofundidad.lsp
+T
+
+>(busqueda-en-profundidad)
+
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(trace es-estado-final)
+
+(ES-ESTADO-FINAL)
+
+>(busqueda-en-profundidad)
+
+  1> (ES-ESTADO-FINAL (0 0))
+  <1 (ES-ESTADO-FINAL NIL)
+  1> (ES-ESTADO-FINAL (4 0))
+  <1 (ES-ESTADO-FINAL NIL)
+  1> (ES-ESTADO-FINAL (4 3))
+  <1 (ES-ESTADO-FINAL NIL)
+  1> (ES-ESTADO-FINAL (1 3))
+  <1 (ES-ESTADO-FINAL NIL)
+  1> (ES-ESTADO-FINAL (1 0))
+  <1 (ES-ESTADO-FINAL NIL)
+  1> (ES-ESTADO-FINAL (0 1))
+  <1 (ES-ESTADO-FINAL NIL)
+  1> (ES-ESTADO-FINAL (4 1))
+  <1 (ES-ESTADO-FINAL NIL)
+  1> (ES-ESTADO-FINAL (2 3))
+  <1 (ES-ESTADO-FINAL T)
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+
+>>(busqueda-en-profundidad-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 8
+Mßximo en abiertos: 3
+Profundidad mßxima: 6
+----------------------------------------------------------------------
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+
+**********************************************************************
+>(load "jarras.lsp")
+T
+
+>(load "banchura.lsp")
+T
+
+> (busqueda-en-anchura)
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(busqueda-en-anchura-con-estadisticas )
+----------------------------------------------------------------------
+Nodos analizados: 13
+Mßximo en abiertos: 3
+Profundidad mßxima: 6
+----------------------------------------------------------------------
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+Considerando el tiempo
+>(time (busqueda-en-anchura))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+
+Profundidad acotada y profundidad iterativa con el 8-puzzle
+
+>(load "8-puzzle.lsp")
+
+Loading 8-puzzle.lsp
+Finished loading 8-puzzle.lsp
+T
+
+>(load "bprofundidadacotada.lsp")
+
+Loading bprofundidadacotada.lsp
+Finished loading bprofundidadacotada.lsp
+T
+
+>(time (busqueda-en-profundidad-acotada))
+
+real time : 0.050 secs
+run time  : 0.050 secs
+#S(NODO ESTADO #2A((1 2 3) (8 H 4) (7 6 5)) CAMINO
+        (MOVER-DERECHA MOVER-ABAJO MOVER-IZQUIERDA MOVER-ARRIBA
+            MOVER-ARRIBA))
+
+>(load "8-puzzle.lsp")
+
+Loading 8-puzzle.lsp
+Finished loading 8-puzzle.lsp
+T
+
+>(load "bprofundidaditerativa.lsp")
+
+Loading bprofundidaditerativa.lsp
+Finished loading bprofundidaditerativa.lsp
+T
+
+>(time (busqueda-en-profundidad-iterativa))
+
+real time : 0.050 secs
+run time  : 0.050 secs
+#S(NODO ESTADO #2A((1 2 3) (8 H 4) (7 6 5)) CAMINO
+        (MOVER-DERECHA MOVER-ABAJO MOVER-IZQUIERDA MOVER-ARRIBA
+            MOVER-ARRIBA))

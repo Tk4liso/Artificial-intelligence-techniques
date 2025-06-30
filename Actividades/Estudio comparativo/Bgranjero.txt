@@ -1,0 +1,228 @@
+> .\gcl.exe
+GCL (GNU Common Lisp)  Version(2.5.0) Tue Jan 14 14:23:46 EAST 2003
+Licensed under GNU Library General Public License
+Contains Enhancements by W. Schelter
+
+Use (help) to get some basic information on how to use GCL.
+
+>(load "jarras.lsp")
+
+Loading jarras.lsp
+Finished loading jarras.lsp
+T
+
+>(load "banchura.lsp")
+
+Loading banchura.lsp
+Finished loading banchura.lsp
+T
+
+>(busqueda-en-anchura)
+
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(busqueda-en-anchura-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 13
+Mßximo en abiertos: 3
+Profundidad mßxima: 6
+----------------------------------------------------------------------
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(time (busqueda-en-anchura))
+
+real time : 0.017 secs
+run time  : 0.017 secs
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(load "bprofundidad.lsp")
+
+Loading bprofundidad.lsp
+Finished loading bprofundidad.lsp
+T
+
+>(busqueda-en-profundidad)
+
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(busqueda-en-profundidad-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 8
+Mßximo en abiertos: 3
+Profundidad mßxima: 6
+----------------------------------------------------------------------
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(time (busqueda-en-profundidad))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(load "bprofundidadacotada.lsp")
+
+Loading bprofundidadacotada.lsp
+Finished loading bprofundidadacotada.lsp
+T
+
+>(busqueda-en-profundidad-acotada :cota 5)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 10)
+
+#S(NODO ESTADO (2 3) CAMINO
+        (LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4 VACIAR-JARRA4-EN-JARRA3
+            VACIAR-JARRA3 LLENAR-JARRA3-CON-JARRA4 LLENAR-JARRA4))
+
+>(time (busqueda-en-profundidad-acotada :cota 10))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (2 3) CAMINO
+> .\gcl.exe
+GCL (GNU Common Lisp)  Version(2.5.0) Tue Jan 14 14:23:46 EAST 2003
+Licensed under GNU Library General Public License
+Contains Enhancements by W. Schelter
+
+Use (help) to get some basic information on how to use GCL.
+
+>(load "granjero.lsp")
+
+Loading granjero.lsp
+Finished loading granjero.lsp
+T
+
+>(load "banchura.lsp")
+
+Loading banchura.lsp
+Finished loading banchura.lsp
+T
+
+>(load "bprofundidad.lsp")
+
+Loading bprofundidad.lsp
+Finished loading bprofundidad.lsp
+T
+
+>
+(load "bprofundidadacotada.lsp")
+
+Loading bprofundidadacotada.lsp
+Finished loading bprofundidadacotada.lsp
+T
+
+>(load "bprofundidaditerativa.lsp")
+
+Loading bprofundidaditerativa.lsp
+Finished loading bprofundidaditerativa.lsp
+T
+
+>
+(busqueda-en-anchura)
+
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(busqueda-en-anchura-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 10
+Mßximo en abiertos: 2
+Profundidad mßxima: 7
+----------------------------------------------------------------------
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(time (busqueda-en-anchura))
+
+real time : 0.017 secs
+run time  : 0.017 secs
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(busqueda-en-profundidad)
+
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(busqueda-en-profundidad-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 8
+Mßximo en abiertos: 3
+Profundidad mßxima: 7
+----------------------------------------------------------------------
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(time (busqueda-en-profundidad))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(busqueda-en-profundidad-acotada :cota 5)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 6)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 7)
+
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(time (busqueda-en-profundidad-acotada :cota 7))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(busqueda-en-profundidad-iterativa :cota-inicial 0)
+
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>(time (busqueda-en-profundidad-iterativa :cota-inicial 0))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (D D D D) CAMINO
+        (PASAN-GRANJERO-CABRA PASA-GRANJERO-SOLO PASAN-GRANJERO-COL
+            PASAN-GRANJERO-CABRA PASAN-GRANJERO-LOBO PASA-GRANJERO-SOLO
+            PASAN-GRANJERO-CABRA))
+
+>

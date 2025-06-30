@@ -1,0 +1,77 @@
+Ejecutar gcl (es modo consola!!)
+No olvidar editar la definicion del espacio de estados de cada problema.
+
+Ejemplo 1: El problema del granjero
+---------------------------------------------------
+GCL (GNU Common Lisp)  Version(2.5.0) Tue Jan 14 14:23:46 EAST 2003
+Licensed under GNU Library General Public License
+Contains Enhancements by W. Schelter
+
+Use (help) to get some basic information on how to use GCL.
+
+>(load "granjero.lsp")
+
+Loading granjero.lsp
+Finished loading granjero.lsp
+T
+
+>(load "verifica.lsp")
+
+Loading verifica.lsp
+Finished loading verifica.lsp
+T
+
+>(verifica '(pasan-granjero-cabra
+pasa-granjero-solo))
+
+(I I I I) PASAN-GRANJERO-CABRA
+(D I D I) PASA-GRANJERO-SOLO
+(I I D I) No es estado final
+NIL
+
+Otro ejemplo
+
+>(verifica '(pasan-granjero-cabra
+pasa-granjero-solo
+pasan-granjero-col
+pasan-granjero-cabra
+pasan-granjero-lobo
+pasa-granjero-solo
+pasan-granjero-cabra))
+
+(I I I I) PASAN-GRANJERO-CABRA
+(D I D I) PASA-GRANJERO-SOLO
+(I I D I) PASAN-GRANJERO-COL
+(D I D D) PASAN-GRANJERO-CABRA
+(I I I D) PASAN-GRANJERO-LOBO
+(D D I D) PASA-GRANJERO-SOLO
+(I D I D) PASAN-GRANJERO-CABRA
+(D D D D) Estado final
+T
+---------------------------------------------------
+Ejemplo 2: 8-puzzle
+
+>(load "8-puzzle.lsp")
+
+Loading 8-puzzle.lsp
+Finished loading 8-puzzle.lsp
+T
+
+>(verifica '(mover-arriba
+mover-arriba
+mover-izquierda
+mover-abajo
+mover-derecha))
+
+#2A((2 8 3) (1 6 4) (7 H 5)) MOVER-ARRIBA
+#2A((2 8 3) (1 H 4) (7 6 5)) MOVER-ARRIBA
+#2A((2 H 3) (1 8 4) (7 6 5)) MOVER-IZQUIERDA
+#2A((H 2 3) (1 8 4) (7 6 5)) MOVER-ABAJO
+#2A((1 2 3) (H 8 4) (7 6 5)) MOVER-DERECHA
+#2A((1 2 3) (8 H 4) (7 6 5)) Estado final
+T
+---------------------------------------------------
+
+Para los otros ejemplos, es necesario verificar los operadores y utilizar la
+función de verificación.
+

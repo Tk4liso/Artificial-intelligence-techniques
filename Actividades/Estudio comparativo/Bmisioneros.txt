@@ -1,0 +1,168 @@
+> .\gcl.exe
+GCL (GNU Common Lisp)  Version(2.5.0) Tue Jan 14 14:23:46 EAST 2003
+Licensed under GNU Library General Public License
+Contains Enhancements by W. Schelter
+
+Use (help) to get some basic information on how to use GCL.
+
+>(load "misioneros.lsp")
+
+Loading misioneros.lsp
+Finished loading misioneros.lsp
+T
+
+>(load "banchura.lsp")
+
+Loading banchura.lsp
+Finished loading banchura.lsp
+T
+
+>(load "bprofundidad.lsp")
+
+Loading bprofundidad.lsp
+Finished loading bprofundidad.lsp
+T
+
+>(load "bprofundidadacotada.lsp")
+
+Loading bprofundidadacotada.lsp
+Finished loading bprofundidadacotada.lsp
+T
+
+>(load "bprofundidaditerativa.lsp")
+
+Loading bprofundidaditerativa.lsp
+Finished loading bprofundidaditerativa.lsp
+T
+
+>(busqueda-en-anchura)
+
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(busqueda-en-anchura-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 15
+Mßximo en abiertos: 3
+Profundidad mßxima: 11
+----------------------------------------------------------------------
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(time (busqueda-en-anchura))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(busqueda-en-profundidad)
+
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(busqueda-en-profundidad-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 12
+Mßximo en abiertos: 4
+Profundidad mßxima: 11
+----------------------------------------------------------------------
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(time (busqueda-en-profundidad))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(busqueda-en-profundidad-acotada :cota 5)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 6)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 7)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 8)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 9)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 10)
+
+NIL
+
+>(busqueda-en-profundidad-acotada :cota 11)
+
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(time (busqueda-en-profundidad-acotada :cota 11))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(busqueda-en-profundidad-iterativa :cota-inicial 0)
+
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>(time (busqueda-en-profundidad-iterativa :cota-inicial 0))
+
+real time : 0.033 secs
+run time  : 0.033 secs
+#S(NODO ESTADO (0 0 3 3 E) CAMINO
+        (MISIONERO-CANIBAL-ESTE MISIONERO-OESTE CANIBAL-CANIBAL-ESTE
+            CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            MISIONERO-CANIBAL-OESTE MISIONERO-MISIONERO-ESTE
+            CANIBAL-OESTE CANIBAL-CANIBAL-ESTE MISIONERO-OESTE
+            MISIONERO-CANIBAL-ESTE))
+
+>

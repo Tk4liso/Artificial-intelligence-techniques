@@ -1,0 +1,148 @@
+> .\gcl.exe
+GCL (GNU Common Lisp)  Version(2.5.0) Tue Jan 14 14:23:46 EAST 2003
+Licensed under GNU Library General Public License
+Contains Enhancements by W. Schelter
+
+Use (help) to get some basic information on how to use GCL.
+
+>(load "Hanoi.lsp")
+
+Loading Hanoi.lsp
+Finished loading Hanoi.lsp
+T
+
+>(load "hanoi-mod.lsp")
+
+Loading hanoi-mod.lsp
+Finished loading hanoi-mod.lsp
+T
+
+>(load "torresHanoi.lsp")
+
+Loading torresHanoi.lsp
+Finished loading torresHanoi.lsp
+T
+
+>(load "banchura.lsp")
+
+Loading banchura.lsp
+Finished loading banchura.lsp
+T
+
+>(load "bprofundidad.lsp")
+
+Loading bprofundidad.lsp
+Finished loading bprofundidad.lsp
+T
+
+>(load "bprofundidadacotada.lsp")
+
+Loading bprofundidadacotada.lsp
+Finished loading bprofundidadacotada.lsp
+T
+
+>(load "bprofundidaditerativa.lsp")
+
+Loading bprofundidaditerativa.lsp
+Finished loading bprofundidaditerativa.lsp
+T
+
+>(busqueda-en-anchura-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 20
+Mßximo en abiertos: 8
+Profundidad mßxima: 7
+----------------------------------------------------------------------
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AC MOV-AB MOV-BC MOV-AC MOV-AB))
+
+>(time (busqueda-en-anchura))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AC MOV-AB MOV-BC MOV-AC MOV-AB))
+
+>(busqueda-en-anchura)
+
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AC MOV-AB MOV-BC MOV-AC MOV-AB))
+
+>(busqueda-en-profundidad)
+
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB
+                MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC
+                MOV-AB))
+
+>(busqueda-en-profundidad-con-estadisticas)
+----------------------------------------------------------------------
+Nodos analizados: 18
+Mßximo en abiertos: 10
+Profundidad mßxima: 17
+----------------------------------------------------------------------
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB
+                MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC
+                MOV-AB))
+
+>(time (busqueda-en-profundidad))
+
+real time : 0.017 secs
+run time  : 0.017 secs
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB
+                MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC
+                MOV-AB))
+
+>(time (busqueda-en-profundidad-acotada :cota 20))
+
+real time : 0.017 secs
+run time  : 0.017 secs
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB
+                MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC
+                MOV-AB))
+
+>(time (busqueda-en-profundidad-acotada :cota 15))
+
+real time : 0.017 secs
+run time  : 0.017 secs
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-BC MOV-AB MOV-AC MOV-BC MOV-AB MOV-AC MOV-AB MOV-BC MOV-AB
+                MOV-AC MOV-AB MOV-BC MOV-AB MOV-AC MOV-AB))
+
+>(time (busqueda-en-profundidad-acotada :cota 10))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AC MOV-AB MOV-BC MOV-AC MOV-AB))
+
+>(time (busqueda-en-profundidad-acotada :cota 7))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AC MOV-AB MOV-BC MOV-AC MOV-AB))
+
+>(time (busqueda-en-profundidad-acotada :cota 5))
+
+real time : 0.017 secs
+run time  : 0.017 secs
+NIL
+
+>(time (busqueda-en-profundidad-acotada :cota 6))
+
+real time : 0.000 secs
+run time  : 0.000 secs
+NIL
+
+>(time (busqueda-en-profundidad-iterativa :cota-inicial 0))
+
+real time : 0.017 secs
+run time  : 0.017 secs
+#S(NODO ESTADO ((4 5) (1 2 3) NIL) CAMINO
+        (MOV-AB MOV-BC MOV-AC MOV-AB MOV-BC MOV-AC MOV-AB))
+
+>

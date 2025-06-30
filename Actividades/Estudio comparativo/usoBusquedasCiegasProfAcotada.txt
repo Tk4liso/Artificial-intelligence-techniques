@@ -1,0 +1,50 @@
+Problema del 8-puzzle
+
+E.I	   E.F
+4 8 1     1 2 3 
+3   2     8   4
+7 6 5     7 6 5
+
+>(load "8-puzzle.lsp")
+
+Loading 8-puzzle.lsp
+Finished loading 8-puzzle.lsp
+T
+
+>(load "bprofundidadacotada.lsp")
+
+Loading bprofundidadacotada.lsp
+Finished loading bprofundidadacotada.lsp
+T
+
+>(time (busqueda-en-profundidad-acotada))
+
+real time : 0.083 secs
+run time  : 0.083 secs
+NIL
+
+>(time (busqueda-en-profundidad-acotada :cota 12))
+
+real time : 0.033 secs
+run time  : 0.033 secs
+#S(NODO ESTADO #2A((1 2 3) (8 H 4) (7 6 5)) CAMINO
+        (MOVER-IZQUIERDA MOVER-ABAJO MOVER-DERECHA MOVER-DERECHA
+            MOVER-ARRIBA MOVER-IZQUIERDA MOVER-IZQUIERDA MOVER-ABAJO
+            MOVER-DERECHA MOVER-DERECHA MOVER-ARRIBA MOVER-IZQUIERDA))
+
+>(load "bprofundidaditerativa.lsp")
+
+Loading bprofundidaditerativa.lsp
+Finished loading bprofundidaditerativa.lsp
+T
+
+>(time (busqueda-en-profundidad-iterativa :cota-inicial 0))
+
+real time : 4.183 secs
+run time  : 4.183 secs
+#S(NODO ESTADO #2A((1 2 3) (8 H 4) (7 6 5)) CAMINO
+        (MOVER-IZQUIERDA MOVER-ABAJO MOVER-DERECHA MOVER-DERECHA
+            MOVER-ARRIBA MOVER-IZQUIERDA MOVER-IZQUIERDA MOVER-ABAJO
+            MOVER-DERECHA MOVER-DERECHA MOVER-ARRIBA MOVER-IZQUIERDA))
+
+>
