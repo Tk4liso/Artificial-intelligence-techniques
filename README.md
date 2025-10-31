@@ -10,8 +10,6 @@ Finally, current trends in AI were discussed, as well as ethical debates and new
 
 <img width="950" height="800" alt="image" src="https://github.com/user-attachments/assets/48db600e-e63d-43ca-b91f-e71325b3685f" />
 
-<img width="722" height="853" alt="image" src="https://github.com/user-attachments/assets/8dff7c12-17f1-4ebb-92ff-07df48455cbc" />
-
 <img width="1051" height="482" alt="image" src="https://github.com/user-attachments/assets/55059561-3aa8-47cb-815b-464a583335e1" />
 
 <img width="537" height="541" alt="image" src="https://github.com/user-attachments/assets/259f2fd1-9680-4894-b825-736b4d3cce7e" />
