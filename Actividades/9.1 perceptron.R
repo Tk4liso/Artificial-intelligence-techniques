@@ -1,0 +1,105 @@
+#Uso del perceptrón 
+
+# ----> 1. Creación de conjuntos de datos de entrenamiento
+
+N = 50 # total number of data points each group 
+x_offset = 0.5 # group seperation on x axis 
+y_offset = 0.5 # group seperation on y axis 
+  
+g1_x = runif(N, min = 0, max = 1) 
+g1_y = runif(N, min = 0, max = 1) 
+g2_x = runif(N, min = 0+x_offset, max = 1+x_offset) 
+g2_y = runif(N, min = 0+y_offset, max = 1+y_offset) 
+g_x = c(g1_x, g2_x) 
+g_y = c(g1_y, g2_y) 
+group = c(rep(-1,N), rep(1,N)) 
+  
+print(g_x)
+print(g_y)
+print(group) 
+
+#Gráfico de dispersión para cada grupo
+plot(g_x, g_y, type='n', xlab='X', ylab='Y') 
+points(g1_x, g1_y, col='red') 
+points(g2_x, g2_y, col='blue') 
+
+
+# ----> 2. Definir parámetros del perceptrón
+
+w0 = 0.1 # initial weitht 
+w1 = 0.2 # initial weight 
+w2 = 0.3 # initial weitht 
+M = 15            
+
+# number of epochs to run 
+eta = 0.005       
+th = 0.9          
+
+# learning rate 
+# threshold to stop 
+verbose = F   # whether detailed weight update info is printed 
+
+
+# ----> 3. Modelo del perceptrón
+
+for (i in 1:M){ 
+  print(paste('Epoch starts: ', i)) 
+  
+  ## We reshuffle the order of the datapoint for each epoch. 
+  index = 1:(2*N) 
+  index = sample(index) 
+  
+  for (j in index){ 
+    y_j = w0 + w1*g_x[j] + w2*g_y[j] 
+    if (y_j >= 0){ 
+      pred_j = 1 
+      }else{
+        pred_j = -1}
+    
+    w0 = w0 + eta*(group[j] - pred_j)*1.0 
+    w1 = w1 + eta*(group[j] - pred_j)*g_x[j] 
+    w2 = w2 + eta*(group[j] - pred_j)*g_y[j]
+    
+    if (verbose == T){
+      print(paste('  -> updating data point ', j, ' : '))  
+      print(paste(' -> w0: ' ,w0))
+      print(paste(' -> w0: ' ,w1))
+      print(paste(' -> w0: ' ,w2))
+    }
+  }
+  
+  y_all = w0 + w1*g_x + w2*g_y 
+  y_pred = y_all 
+  y_pred[y_all >= 0] = 1 
+  y_pred[y_all< 0] = -1 
+  
+  acc = sum(y_pred == group)/length(group) 
+  print(paste('Epoch ends: ', i, ' WITH accuracy: ', acc)) 
+  if (acc >= th){
+    break 
+    } 
+} 
+
+# ----> 4. Comprobación de la predicción
+
+y_all = w0 + w1*g_x + w2*g_y 
+print(y_all)
+
+y_pred = y_all 
+y_pred[y_all >= 0] = 1 
+y_pred[y_all< 0] = -1 
+print(y_pred) 
+
+acc = sum(y_pred == group)/length(group) 
+print(acc)
+
+plot(g_x, g_y, type='n', xlab='X', ylab='Y') 
+points(g1_x, g1_y, col='red') 
+points(g2_x, g2_y, col='blue') 
+abline(a = -1.0*w0/w2, b = -1.0*w1/w2, col='dark green', lwd=3, lty=2) 
+
+
+
+
+
+#xd
